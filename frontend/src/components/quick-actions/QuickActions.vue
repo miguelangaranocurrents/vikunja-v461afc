@@ -610,7 +610,9 @@ function onEnter(event: KeyboardEvent) {
 }
 
 async function doCmd() {
-	if (results.value.length === 1 && results.value[0].items.length === 1) {
+	// A selected command takes the query as its input, even when that query happens to
+	// match exactly one result (e.g. a task titled like an existing project).
+	if (selectedCmd.value === null && results.value.length === 1 && results.value[0].items.length === 1) {
 		const result = results.value[0]
 		doAction(result.type, result.items[0])
 		openTaskAfterCreate = false

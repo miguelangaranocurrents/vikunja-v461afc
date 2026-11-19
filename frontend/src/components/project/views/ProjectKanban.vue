@@ -354,6 +354,9 @@ const DRAG_OPTIONS = {
 	dragClass: 'task-dragging',
 	delayOnTouchOnly: true,
 	delay: 1000,
+	// sortable's default is 30px, too narrow to reach the board edge from where the
+	// pointer is during a drag, so the board would never scroll to an off-screen bucket.
+	scrollSensitivity: 80,
 } as const
 
 const MIN_SCROLL_HEIGHT_PERCENT = 0.25
